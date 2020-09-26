@@ -1,0 +1,46 @@
+<div class="body">
+  <div class="container">
+    <h2>User info</h2>
+
+    <!--バリデーションのエラ〜メッセージ-->
+    <div id="error_explanation">
+     <% if @user.errors.any? %>
+      <h3>2 error prohibited this obj from being saved:</h3>
+
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        </ul>
+      <% end %>
+
+
+<%= form_with model:@user, local:true do |f| %>
+
+
+<label>Name</label>
+<%= f.text_field :name %><br>
+
+<label>Image</label><br>
+<%= f.attachment_field :profile_image %><br>
+
+<label>introduction</label>
+<%= f.text_area :introduction %><br>
+<%= f.submit 'Update User'%><br>
+</div>
+<% end %>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
